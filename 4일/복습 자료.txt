@@ -1,0 +1,30 @@
+자료형)	자료형이란
+
+		숫자 Number
+
+		문자열 String
+
+		불린 Boolean
+
+		undefined-null
+
+		typeof 총정리
+
+Git
+
+
+git config --global("name", "email")														01-2
+
+cd, pwd, ls, mkdir, rm -r																01-3
+
+vim, :wq(저장 후 종료 *자주사용*),  cat 파일 이름												01-4
+
+git init																			02-1
+
+git status, git add, git commit, git log														02-2
+
+git diff																			02-3
+
+git log --stat, git commit --amend															02-4
+
+											*ai 문제 기준 95점 이상 완*

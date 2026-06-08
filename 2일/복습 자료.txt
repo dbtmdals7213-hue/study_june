@@ -1,0 +1,28 @@
+CSS
+
+3단 레이아웃 만들기																							08-4			/완
+
+position, left, top, right, bottom, 마무리 문제(숙제)																		08-5			/완
+
+09-1 이미 배운 내용(background-color) 생략																						따로 자습
+
+background-image, background-repeat, background-position, background-origin, background- attachment, background-size, do-it 실습 해보기		09-2			따로 자습
+
+연결 선택자(하위 선택자, 자식 선택자, 형제 선택자), 이후 내용 숙제															10-1			/완
+
+
+
+JavaScript
+자바스크립트 독학 자습서 실습(아래 내용) 숙제																					/아래에 포함 (완)
+
+0차시 (컴퓨터 메모리) 10진수 -> 2진수 변경, 2진수 -> 10진수 변경 숙제																	/2차시 파일에 추가 (완)
+
+변수 1차시 (변수란 무엇인가?)																								/ 수업시간에 함
+
+변수 2차시 (변수 만들기)																									/ 완
+
+변수 3차시 (let vs const)																									/ 수업시간에 함
+
+변수 4차시 (변수 이름 규칙)																									/ 수업시간에 함
+
+종합 정리 실습 5차시

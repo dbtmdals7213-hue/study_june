@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>연습문제 3</title>
+  <style>
+    table {
+      border: 1px solid black;    /* 표와 셀에 테두리 1px solid black으로 설정. */
+      border-collapse: collapse;    /* 한 줄로 합쳐 표시. */
+      caption-side: bottom;   /* 표의 설명 글(caption) 아래쪽에 표시하도록 설정. */
+    }
+
+    th, td {
+      padding: 10px;    /* 각 셀에 padding: 10px을 적용해 여백을 적절히 두도록 설정. */
+    }
+
+    .heading {
+      background-color: #eee;   /* 표의 첫 번째 행과 첫 번째 열에 배경색을 #eee로 지정. */
+    }
+    
+  </style>
+</head>
+<body>
+  <table>   <!-- <table>태그에 포함된 border="1" 속성 제거. -->
+    <caption>2019 국민 독서실태</caption>
+    <thead>
+      <tr>
+        <th class="heading">구분</th>     <!-- .heading 정의를 위한 class 속성 설정 -->
+        <th class="heading">성인</th>     <!-- .heading 정의를 위한 class 속성 설정 -->
+        <th class="heading">독서자</th>   <!-- .heading 정의를 위한 class 속성 설정 -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th class="heading">종이책</th>   <!-- .heading 정의를 위한 class 속성 설정 -->
+        <td>6.1권</td>
+        <td>11.8권</td>
+      </tr>
+      <tr>
+        <th class="heading">전자책</th>   <!-- .heading 정의를 위한 class 속성 설정 -->
+        <td>1.2권</td>
+        <td>7.1권</td>
+      </tr>
+      <tr>
+        <th class="heading">오디오북</th>   <!-- .heading 정의를 위한 class 속성 설정 -->
+        <td>0.2권</td>
+        <td>5.5권</td>
+      </tr>      
+    </tbody>
+  </table>
+</body>
+</html>

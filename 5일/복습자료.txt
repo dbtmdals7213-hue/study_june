@@ -1,0 +1,27 @@
+js {
+
+자료형 null, undefined																	자료형
+
+typeof와 총정리
+
+연산자란?																			연산자
+
+산술 연산자
+
+비교 연산자
+
+논리 연산자
+}
+
+git {
+
+git restore(작업 되돌리기), git restore --staged(스테이징 되돌리기), git reset HEAD^(최신 커밋 되돌리기)			02-5		/완
+git reset -- hard 복사한 커밋 해시, git revert(커밋 변경 이력 취소하기) 
+	
+git branch(브랜치 확인), git branch 브랜치이름(브랜치 이름의 브랜치 만들기)							03-2		/완
+git switch 브랜치이름(브랜치 전환하기)
+
+git add .(수정한 파일 한번에 스테이지로) git log --oneline --branches(브랜치 마다 최신 커밋을 한눈에 보기)		03-3		/완
+
+git merge 브랜치이름(브랜치 합병하기)														03-4		/완
+

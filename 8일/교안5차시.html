@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><title>실습 - 연산자 5차시</title>
+<style>body{font-family:sans-serif;max-width:640px;margin:40px auto;padding:0 20px;line-height:1.7}
+.g{background:#fff7e8;border:1px solid #f0d999;border-radius:10px;padding:14px 16px;color:#6b4e16}
+code{background:#eee;border-radius:4px;padding:1px 6px;font-family:monospace}</style></head><body>
+  <h1>⌨️ 실습 - 전투 데미지 계산기 (미니 프로젝트)</h1>
+  <div class="g"><b>준비:</b> 브라우저로 열고 <code>F12</code> → <b>콘솔</b> 탭을 켜두세요. 단원 전체를 활용한 종합 도전입니다!</div>
+  <script>
+// 주제 : [미니 프로젝트] 전투 데미지 계산기
+//   연산자 단원 전체 활용: 산술(-,*), 복합대입(-=,*=), 비교(===,>), 논리(&&)
+//   목표 : 데미지 계산 → 치명타 적용 → 체력 감소 → 처치 판정
+
+// ===== 1단계: 전투 능력치 =====
+// [1] 공격력 attack 에 60, 방어력 defense 에 10 을 저장하세요.
+//     작성 공식: let 변수 = 값;  ↓
+    let attack = 60;    let defense = 10;
+
+// [2] 적 체력 enemyHp 에 100, 치명타 isCritical 에 true 를 저장하세요.  ↓
+    let enemyHp = 100;    let isCritical = true;
+
+// ===== 2단계: 기본 데미지 (산술) =====
+// [3] 데미지 = 공격력 - 방어력 을 계산해 damage 에 저장하세요.
+//     작성 공식: let 변수 = 값1 - 값2;  ↓
+    let damage = attack - defense;
+//      [    ] = 60 - 10;
+//      [    ] = 50;
+//      [ 50 ]
+
+// [4] "기본 데미지: " 와 damage 를 이어 붙여 출력하세요.  ↓
+    console.log("기본 데미지: ", damage);     // 출력: 기본 데미지: 50 
+//  console.log("기본 데미지: ", 50);
+
+// ===== 3단계: 치명타 적용 (비교 + 복합대입) =====
+// [5] isCritical 이 true 와 같은지 비교해 crit 에 저장하세요.
+//     작성 공식: let 변수 = 값 === 값;  ↓
+    let crit = isCritical === true;
+//      [  ] = true === true;
+//      [  ] = true;
+//      [true]
+
+// [6] "치명타: " 와 crit 을 이어 붙여 출력하세요.  ↓
+    console.log("치명타: ", crit);    // 출력: 치명타: true
+//  console.log("치명타: ", true);
+
+// [7] 치명타이므로 damage 를 2배로 만드세요. (복합 대입 *=)
+//     작성 공식: 변수 *= 2;  ↓
+    damage *= 2;
+//  damage = damage * 2;
+//  damage = 50 * 2;
+//  damage = 100;
+
+// [8] "최종 데미지: " 와 damage 를 이어 붙여 출력하세요.  ↓
+    console.log("최종 데미지: ", damage);   // 출력: 최종 데미지: 100
+//  console.log("최종 데미지: ", 100);
+
+// ===== 4단계: 체력 감소 + 처치 판정 (복합대입 + 논리) =====
+// [9] 적이 맞았습니다! enemyHp 에서 damage 를 빼세요. (복합 대입 -=)
+//     작성 공식: 변수 -= 값;  ↓
+    enemyHp -= damage;
+//  enemyHp = enemyHp - damage;
+//  enemyHp = 100 - 100;
+//  enemyHp = 0;
+
+// [10] "적 남은 HP: " 와 enemyHp 를 이어 붙여 출력하세요.  ↓
+    console.log("적 남은 HP: ", enemyHp);     // 적 남은 HP: 0
+//  console.log("적 남은 HP: ", 0);
+
+// [11] 적이 죽었는지(enemyHp <= 0) 결과를 isDead 에 저장하세요.
+//      작성 공식: let 변수 = 값 <= 0;  ↓
+    let isDead = enemyHp <= 0;
+    //  isDead = 0 <= 0;
+    //  isDead = true;
+
+// [12] "적 처치: " 와 isDead 를 이어 붙여 출력하세요.  ↓
+    console.log("적 처치: ", isDead);     // 출력: 적 처치: true
+//  console.log("적 처치: ", true);
+
+// [13] 적을 처치했고(isDead) 치명타였는지(&&) 출력하세요. (완벽한 처치?)
+//      작성 공식: console.log(조건1 && 조건2);  ↓
+    console.log(isDead && crit);    // 출력: true
+//  console.log(true && true);
+
+// [14] 남은 체력이 0 이거나(||) 음수인지 출력하세요.  ↓
+    console.log(enemyHp === 0 || enemyHp < 0);    // 출력: true
+//  console.log(0 === 0 || 0 < 0);
+//  console.log(true || false);
+//  console.log(true);
+
+// ✅ 데미지50 → 치명타 → 최종100 → 적HP0 → 처치 true 면 성공!
+  </script></body></html>

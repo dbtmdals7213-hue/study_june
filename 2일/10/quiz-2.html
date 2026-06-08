@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>연습문제 2</title>  
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    .top-menu {
+      margin:50px auto;
+      padding:0;
+      list-style:none;
+      width: 605px;     /* 메뉴6의 테두리를 없애 길어진 너비 조정을 위해 610px -> 605px로 수정 */
+      height:35px;
+      box-shadow:0 3px 4px #8b8b8b;
+      background-color:#dadada;
+    }
+    .top-menu li {
+      float:left;
+      border-right:1px solid #929292;
+    }
+    .top-menu li a:link{
+      color:black;
+      text-decoration:none;
+      text-align:center;
+      display:block;
+      width:100px;
+      height:35px;
+      line-height: 35px;
+    }
+    .top-menu li a:visited {
+      color:black;
+    }      
+    .top-menu li:nth-child(6) {
+      border-right: none;   /* 부모(ul) 요소의 6번째 자식(li) 요소를 선택하여 마지막 메뉴 6의 테두리 제거 */
+    }
+    .top-menu li:not(:nth-child(6)) a:hover {   /* 메뉴6을 제외한 나머지 항목(메뉴1~5)의 링크 위로 마우스 포인터를 올린 경우 설정. */
+      background-color: #555;     /* 배경색을 #555로 설정. */
+      color: #fff;    /* 글자색을 #fff로 설정. */
+    }
+    .top-menu li:nth-child(6) a:hover {   /* 마지막 메뉴6의 링크에 마우스 포인터를 올린 경우 설정. */
+      background: #b30000;    /* 배경색을 #b30000로 설정. */
+      color: #fff;    /* 글자색을 #fff로 설정. */
+    }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="top-menu">
+      <li><a href="#">메뉴1</a></li>
+      <li><a href="#">메뉴2</a></li>
+      <li><a href="#">메뉴3</a></li>
+      <li><a href="#">메뉴4</a></li>
+      <li><a href="#">메뉴5</a></li>
+      <li><a href="#">메뉴6</a></li>
+    </ul>
+   </nav>
+</body>
+</html>
