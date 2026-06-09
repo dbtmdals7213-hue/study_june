@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head><meta charset="UTF-8"><title>실습 - 연산자 4차시</title>
+<style>body{font-family:sans-serif;max-width:640px;margin:40px auto;padding:0 20px;line-height:1.7}
+.g{background:#fff7e8;border:1px solid #f0d999;border-radius:10px;padding:14px 16px;color:#6b4e16}
+code{background:#eee;border-radius:4px;padding:1px 6px;font-family:monospace}</style>
+</head>
+
+<body>
+  <h1>⌨️ 실습 - 상태 표시기 (삼항 연산자)</h1>
+  <div class="g"><b>준비:</b> 브라우저로 열고 <code>F12</code> → <b>콘솔</b> 탭을 켜두세요.</div>
+
+    
+<script>
+/*
+  주제 : 삼항 연산자 (조건 ? 참 : 거짓)
+
+  - 작성 공식 : 조건 ? 참일때값 : 거짓일때값
+  - if/else 를 한 줄로 줄인 형태
+  - 결과를 변수에 저장하거나 바로 출력
+*/
+
+// [1] 'hp' 변수에 80을 저장하세요.
+//     작성 공식: let 변수이름 = 값;
+  let hp = 80;
+
+// [2] hp 가 0보다 크면 "생존", 아니면 "사망"을 'status' 에 저장하세요.
+//     작성 공식: let 변수 = 조건 ? "참값" : "거짓값";
+  let status = hp > 0 ? "생존" : "사망";
+  //         = 80 > 0 ? "생존" : "사망";
+  //         =   true ? "생존" : "사망";
+  //         = 생존존
+
+// [3] status 를 출력하세요.
+  console.log(status);    // 출력: 생존
+
+// [4] hp 가 50 이상이면 "안전", 아니면 "위험"을 바로 출력하세요.
+//     작성 공식: console.log(조건 ? "참값" : "거짓값");
+  console.log(hp >= 50 ? "안전" : "위험");      // 출력: true
+  //          80 >= 50 ? "안전" : "위험"
+  //            true   ? "안전" : "위험"
+  //                    true
+
+// [5] 'level' 변수에 8을 저장하세요.
+  let level = 8;
+
+// [6] level 이 10 이상이면 "고수", 아니면 "수련생"을 출력하세요.
+  console.log(level >= 10 ? "고수" : "수련생");   // 출력: 수련생
+  //            8   >= 10  ? "고수" : "수련생"
+  //               false   ? "고수" : "수련생"
+  //                      수련생
+
+// [7] 'gold' 변수에 0을 저장하세요.
+  let gold = 0;
+
+// [8] gold 가 0이면 "빈털터리", 아니면 "보유중"을 'wallet' 에 저장하고 출력하세요.
+//     작성 공식: let 변수 = 조건 ? "참값" : "거짓값";
+  let wallet = gold === 0 ? "빈털터리" : "보유중";
+  //              0 === 0 ? "빈털터리" : "보유중";
+  //                true  ? "빈털터리" : "보유중";
+  //         = 빈털터리
+
+  console.log(wallet);    // 출력: 빈털터리
+
+// [9] hp 가 100이면 "풀피", 아니면 "부상"을 출력하세요.
+  console.log(hp === 100 ? "풀피" : "부상");      // 출력: 부상
+//            80 === 100 ? "풀피" : "부상"
+//              false    ? "풀피" : "부상"
+//                        부상
+
+</script>
+</body>
+</html>

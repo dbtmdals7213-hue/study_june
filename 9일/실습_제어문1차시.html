@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><title>실습 - 제어문 1차시</title>
+<style>body{font-family:sans-serif;max-width:640px;margin:40px auto;padding:0 20px;line-height:1.7}
+.g{background:#fff7e8;border:1px solid #f0d999;border-radius:10px;padding:14px 16px;color:#6b4e16}
+code{background:#eee;border-radius:4px;padding:1px 6px;font-family:monospace}</style></head><body>
+  <h1>⌨️ 실습 - 생존 판정 (if/else)</h1>
+  <div class="g"><b>준비:</b> 브라우저로 열고 <code>F12</code> → <b>콘솔</b> 탭을 켜두세요.</div>
+  <script>
+/*
+    주제 : if / else 조건문
+
+    - if (조건) { } : 조건이 true 면 중괄호 안 코드 실행
+    - else { }      : false 면 실행
+    - 비교는 ===, 게임의 분기 처리에 사용
+*/
+
+// [1] 'hp' 변수에 80을 저장하세요.
+//     작성 공식: let 변수이름 = 값;
+    let hp = 80;
+
+// [2] hp 가 0이면 "게임 오버", 아니면 "계속 진행"을 출력하세요.
+//     작성 공식: if (조건) { } else { }
+    if(hp === 0){
+    // 80 === 0 -> false
+      console.log("게임 오버");
+    }else{
+      console.log("계속 진행");     // 출력: 계속 진행
+    }
+
+// [3] 'gold' 변수에 500을 저장하세요.
+    let gold = 500;
+
+// [4] gold 가 1000 이상이면 "부자", 아니면 "더 모으자"를 출력하세요.
+    if(gold >= 1000){
+    //  500 >= 1000 -> false
+      console.log("부자");
+    }else{
+      console.log("더 모으자");     // 출력: 더 모으자
+    }
+
+// [5] 'mp' 변수에 60을 저장하세요.
+    let mp = 60;
+
+// [6] mp 가 50 이상이면 "스킬 사용 가능"을 출력하세요. (else 없이 if 만)
+//     작성 공식: if (조건) { }
+    if(mp >= 50){
+    // 60 >= 50 -> true
+      console.log("스킬 사용 가능");      // 출력: 스킬 사용 가능
+    }
+
+// [7] 'isPoisoned' 에 true 를 저장하고, true 면 "독 데미지!"를 출력하세요.
+    let isPoisoned = true;
+    if(isPoisoned === true){
+    //       true === true -> true
+      console.log("독 데미지!");      // 출력: 독 데미지!
+    }
+
+  </script></body></html>

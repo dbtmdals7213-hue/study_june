@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><title>제어문 실습</title>
+<style>body{font-family:sans-serif;max-width:600px;margin:40px auto;padding:0 20px;line-height:1.8;font-size:16px}button{padding:8px 16px;font-size:15px;cursor:pointer;margin:4px}input{padding:8px;font-size:15px;width:250px}#out{margin-top:16px;padding:12px;background:#eef1fb;border-radius:8px;min-height:24px}</style>
+</head>
+<body>
+<h3>출력 결과는 F12 → Console 탭에서 확인하세요. 주석 설명을 보며 직접 코드를 작성하세요.</h3>
+<script>
+/*
+    주제 : if / else 조건문
+
+    - if (조건) { } : 조건이 true 면 중괄호 { } 안의 코드 실행
+    - else { }      : 조건이 false 면 실행
+    - 조건의 비교는 === 사용
+    - 게임에서 "체력이 0이면 게임오버" 같은 분기에 사용
+*/
+
+// [1] 'hp' 변수에 80을 저장하세요.
+//     작성 공식: let 변수이름 = 값;
+    let hp = 80;
+
+// [2] hp 가 0과 같으면 "게임 오버", 아니면 "계속 진행"을 출력하세요.
+//     작성 공식: if (조건) { 코드 } else { 코드 }
+    if(hp === 0){
+    //  80 === 0 -> false
+        console.log("게임 오버");
+    }else{
+        console.log("계속 진행");       // 출력: 계속 진행
+    }
+
+// [3] 'gold' 변수에 500을 저장하세요.
+    let gold = 500;
+
+// [4] gold 가 1000 이상이면 "부자", 아니면 "더 모으자"를 출력하세요.
+    if(gold >= 1000){
+    //   500 >= 1000 -> false    
+        console.log("부자");
+    }else{
+        console.log("더 모으자");       // 출력: 더 모으자
+    }
+
+// [5] 'level' 변수에 10을 저장하세요.
+    let level = 10;
+
+// [6] level 이 10 이상이면 "전직 가능"을 출력하세요. (else 없이 if 만)
+//     작성 공식: if (조건) { 코드 }
+    if(level >= 10){
+    //     10 >= 10 -> true 
+        console.log("전직 가능");       // 출력: 전직 가능
+    }
+
+// [7] 'isPoisoned'(중독 여부)에 true 를 저장하세요.
+    let isPoisoned = true;
+
+// [8] 중독 상태(true)면 "독 데미지!"를 출력하세요.
+    if(isPoisoned === true){
+    //        true === true -> true
+        console.log("독 데미지!");      // 출력: 독 데미지!
+    }
+
+// [9] 'mp'(마나)에 30을 저장하세요.
+    let mp = 30;
+
+// [10] mp 가 50 이상이면 "스킬 사용 가능", 아니면 "마나 부족"을 출력하세요.
+    if(mp >= 50){
+    // 30 >= 50 -> false
+        console.log("스킬 사용 가능");
+    }else{
+        console.log("마나 부족");   // 출력: 마나 부족
+    }
+
+</script>
+</body>
+</html>
