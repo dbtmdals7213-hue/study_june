@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    /*
+       
+        //  문제: 사이트 방문자에게 현재 몇월 달인지 입력받습니다.
+        //       입력받은 월에 따라 각각 다른 문장을 출력하는 예
+        
+        // 순서1. 사이트 방문자에게 현재 몇월 달인지 입력받아 mon 변수에 저장
+        let mon = prompt("현재 몇월인지 입력하세요!");
+
+        let message;    // 계절 메세지를 저장 할 변수 선언
+
+        switch(true){
+
+            case (mon >= 9 && mon <= 11): 
+                message = "독서의 계절 가을이네요!!";
+                break;
+            
+            case (mon >= 6 && mon <= 8): 
+                message = "여행 가기 좋은 여름이네요!!";
+                break;
+
+            case (mon >= 3 && mon <= 5): 
+                message = "햇살 가득한 봄이네요!!";
+                break;
+
+            case (mon <= 2 || mon === "12"):
+                message = "스키의 계절 겨울이네요!!";
+                break;
+
+            default:
+                alert("1 ~ 12의 숫자를 입력하세요.");
+                break;
+
+        }
+    
+        // message 변수에 저장된 계절 메세지 한 번만 출력
+        document.write(message);
+
+    */
+
+    // --------------------------------------------------------------------------
+    // 위의 주석 내용을 토대로 switch(변수명)으로 작업해보기
+    
+        let rank = parseInt(prompt("성적의 등급을 1~9등급까지 적어주세요!"));
+        
+        let msg;
+
+        switch(rank){
+
+            case 1: case 2: case 3: 
+                msg = "상위 30퍼 이내입니다. 이대로 화이팅합시다!";
+                document.write(msg);
+                break;
+            case 4: case 5: case 6: 
+                msg = "상위 70퍼 이내입니다. 조금만 더 노력해봐요!";
+                document.write(msg);
+                break;
+            case 7: case 8: case 9:
+                msg = "상위 70% 이상입니다. 더 분발하세요!";
+                document.write(msg);
+                break;
+            default:
+                alert("잘못된 값을 입력하셨습니다. 1 ~ 9 사이의 값을 입력해주세요!");
+                break;
+        
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><title>실습 - 제어문 2차시</title>
+<style>body{font-family:sans-serif;max-width:640px;margin:40px auto;padding:0 20px;line-height:1.7}
+.g{background:#fff7e8;border:1px solid #f0d999;border-radius:10px;padding:14px 16px;color:#6b4e16}
+code{background:#eee;border-radius:4px;padding:1px 6px;font-family:monospace}</style></head><body>
+  <h1>⌨️ 실습 - HP 등급기 (else if)</h1>
+  <div class="g"><b>준비:</b> 브라우저로 열고 <code>F12</code> → <b>콘솔</b> 탭을 켜두세요.</div>
+  <script>
+/*
+    주제 : else if 다중 분기
+
+    - 갈림길이 셋 이상일 때 else if 로 조건 추가
+    - 위에서부터 검사해 '처음 맞는 것 하나만' 실행
+    - 좁은(큰) 조건을 위에 두는 것이 중요
+*/
+
+// [1] 'hp' 변수에 65를 저장하세요.
+//     작성 공식: let 변수이름 = 값;
+    let hp = 65;
+
+// [2] hp 70 이상 "안전", 30 이상 "주의", 그 외 "위험"을 출력하세요.
+//     작성 공식: if(){ } else if(){ } else { }
+    if(hp >= 70){
+    // 65 >= 70 -> false
+      document.write("안전 <br>");
+      console.log("안전");
+    }else if(hp >= 30){
+    //       65 >= 30 -> true
+      document.write("주의 <br>");  // 출력: 주의, 한 줄 띄우기
+      console.log("주의");  // 출력: 주의
+    }else{  // 위에서 true 이므로 실행 X
+
+      document.write("위험 <br>");
+      console.log("위험");
+    }
+
+// [3] 'score' 변수에 85를 저장하세요.
+    let score = 85;
+
+// [4] 90 이상 "A", 80 이상 "B", 그 외 "C"를 출력하세요.
+    if(score >= 90){
+    //    85 >= 90 -> false
+      document.write("A <br>");
+      console.log("A");
+    }else if(score >= 80){
+    //          85 >= 80 -> true
+      document.write("B <br>");   // 출력: B, 한 줄 띄우기
+      console.log("B");  // 출력: B
+    }else{  // 위에서 true 이므로 실행 X
+
+      document.write("C <br>");
+      console.log("C");
+    }
+
+// [5] 'level' 변수에 25를 저장하세요.
+    let level = 25;
+
+// [6] 30 이상 "고수", 10 이상 "중수", 그 외 "초보"를 출력하세요.
+    if(level >= 30){
+    //    25 >= 30 -> false
+      document.write("고수");
+      console.log("고수");
+    }else if(level >= 10){
+    //          25 >= 10 -> true
+      document.write("중수");   // 출력: 중수
+      console.log("중수");    // 출력: 중수
+    }else{  // 위에서 true 이므로 실행 X
+
+      document.write("초보");
+      console.log("초보");
+    }
+  </script></body></html>
