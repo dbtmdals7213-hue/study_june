@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><title>실습 - 제어문 3차시</title>
+<style>body{font-family:sans-serif;max-width:640px;margin:40px auto;padding:0 20px;line-height:1.7}
+.g{background:#fff7e8;border:1px solid #f0d999;border-radius:10px;padding:14px 16px;color:#6b4e16}
+code{background:#eee;border-radius:4px;padding:1px 6px;font-family:monospace}</style></head><body>
+  <h1>⌨️ 실습 - 반복 공격 & 합계 (for)</h1>
+  <div class="g"><b>준비:</b> 브라우저로 열고 <code>F12</code> → <b>콘솔</b> 탭을 켜두세요.</div>
+  <script>
+/*
+    주제 : for 반복문
+    
+    - 작성 공식 : for (시작값; 반복조건; 증감) { 반복할 코드 }
+        · let i = 1  → 시작값,  i <= 5 → 조건,  i++ → 매번 +1
+    - 정해진 횟수만큼 반복, 합계 누적 등에 사용
+*/
+
+// [1] i 를 1부터 5까지 출력하세요.
+//     작성 공식: for (let i=시작; i<=끝; i++) { console.log(i); }
+    for(let i = 1; i <= 5; i++){
+      document.write(i, "<br>");  // 출력: 1 한 줄 띄우기, 2 한 줄 띄우기, 3 한 줄 띄우기, 4 한 줄 띄우기, 5 한 줄 띄우기
+      console.log(i);
+    }
+
+    document.write("-----------------------------------------------------------------<br>");
+
+    // [2] "공격!" 을 3번 출력하세요.
+//     작성 공식: for (let i=0; i<3; i++) { console.log("공격!"); }
+    for(let i = 0; i < 3; i++){
+      document.write("공격!", "<br>");  // 출력: 공격! 한 줄 띄우기, 공격! 한 줄 띄우기, 공격! 한 줄 띄우기
+      console.log("공격!");
+    }
+
+document.write("-----------------------------------------------------------------<br>");
+
+// [3] "몬스터 " 와 번호를 붙여 1~3번을 출력하세요.
+//     작성 공식: console.log("문자열" + i);
+    for(let i = 1; i <= 3; i++){
+      document.write("몬스터 " + i, "<br>");  // 출력: 몬스터 1 한 줄 띄우기, 몬스터 2 한 줄 띄우기, 몬스터 3 한 줄 띄우기
+      console.log("몬스터 "+ i);
+    }
+
+
+document.write("-----------------------------------------------------------------<br>");
+
+// [4] 'sum' 변수에 0을 저장하세요.
+    let sum = 0;
+// [5] 1부터 5까지 더해 sum 에 누적한 뒤, sum 을 출력하세요.
+//     작성 공식: 반복 안에서 sum += i;
+    for(let i = 1; i <= 5; i++){
+      sum += i
+      document.write(sum, "<br>");  // 출력: 1 한 줄 띄우기, 3 한 줄 띄우기, 6 한 줄 띄우기, 10 한 줄 띄우기, 15 한 줄 띄우기
+      console.log(sum);
+    }
+
+  </script></body></html>
