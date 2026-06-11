@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><title>제어문 실습</title>
+<style>body{font-family:sans-serif;max-width:600px;margin:40px auto;padding:0 20px;line-height:1.8;font-size:16px}button{padding:8px 16px;font-size:15px;cursor:pointer;margin:4px}input{padding:8px;font-size:15px;width:250px}#out{margin-top:16px;padding:12px;background:#eef1fb;border-radius:8px;min-height:24px}</style>
+</head>
+<body>
+<h3>출력 결과는 F12 → Console 탭에서 확인하세요. 주석 설명을 보며 직접 코드를 작성하세요.</h3>
+<script>
+/*
+    주제 : while 반복문
+
+    - 작성 공식 : while (조건) { 조건이 true 인 동안 반복 }
+    - for 는 횟수 중심, while 은 상태 중심
+    - 주의 : 반복 안에서 조건을 false 로 만들 코드가 없으면 무한 반복!
+        (예: hp 를 줄이는 줄이 꼭 있어야 함)
+    - 게임에서 "체력이 남아있는 동안" 같은 반복에 사용
+*/
+
+// [1] 'hp' 변수에 100을 저장하세요.
+//     작성 공식: let 변수이름 = 값;
+    let hp = 100;
+
+// [2] hp 가 0보다 큰 동안, hp 를 30씩 줄이며 hp 를 출력하세요.
+//     작성 공식: while (조건) { hp -= 값; console.log(hp); }
+    while(hp > 0){
+        document.write(hp, "<br>");
+        console.log(hp);
+        hp -= 30;
+    }
+
+    document.write("------------------------------------------------<br>");
+
+// [3] 'count' 변수에 1을 저장하세요.
+    let count = 1;
+
+// [4] count 가 5 이하인 동안, count 를 출력하고 1씩 늘리세요.
+//     주의: count++ 가 없으면 무한반복!
+    while(count <= 5){
+        document.write(count, "<br>");
+        console.log(count);
+        count++;
+    }
+
+    document.write("------------------------------------------------<br>");
+
+// [5] 'gold' 변수에 0을 저장하세요.
+    let gold = 0;
+// [6] gold 가 100 미만인 동안, gold 를 25씩 늘리며 출력하세요.
+    while(gold < 100){
+        document.write(gold, "<br>");
+        console.log(gold);
+        gold += 25;
+    }
+
+    document.write("------------------------------------------------<br>");
+
+// [7] 'enemies'(남은 적 수)에 3을 저장하세요.
+    let enemies = 3;
+// [8] 적이 남아있는 동안(enemies > 0), "적 처치!"를 출력하고 1 줄이세요.
+    while(enemies > 0){
+        document.write("적 처치! 남은 적 수: " + enemies + "마리!", "<br>");
+        console.log("적 처치! 남은 적 수: " + enemies + "마리!");
+        enemies--;
+    }
+
+
+</script>
+</body>
+</html>
