@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><title>실습 - 제어문 5차시</title>
+<style>body{font-family:sans-serif;max-width:640px;margin:40px auto;padding:0 20px;line-height:1.7}
+.g{background:#fff7e8;border:1px solid #f0d999;border-radius:10px;padding:14px 16px;color:#6b4e16}
+code{background:#eee;border-radius:4px;padding:1px 6px;font-family:monospace}</style></head><body>
+  <h1>⌨️ 실습 - 멈춤/건너뛰기 (break/continue)</h1>
+  <div class="g"><b>준비:</b> 브라우저로 열고 <code>F12</code> → <b>콘솔</b> 탭을 켜두세요.</div>
+  <script>
+/*
+    주제 : break 와 continue
+
+    - break    : 반복을 즉시 완전히 멈춤
+    - continue : 이번 회차만 건너뛰고 다음 반복으로
+    - 특정 조건에서 반복을 제어할 때 사용
+*/
+
+// [1] 1부터 10까지 반복하되, i 가 5가 되면 break 로 멈추세요.
+//     작성 공식: for(...){ if(i===5){ break; } console.log(i); }
+    for(let i = 1; i <= 10; i++){
+      if(i === 5){
+        break;
+      }
+      console.log(i); // 출력: 1, 2, 3, 4
+    }
+    
+    console.log("---------------------------------------");     // 줄바꿈 나타내기용 표시선
+
+// [2] 1부터 5까지 반복하되, i 가 3이면 continue 로 건너뛰세요.
+//     작성 공식: for(...){ if(i===3){ continue; } console.log(i); }
+    for(let i = 1; i <= 5; i++){
+      if(i === 3){
+        continue;
+      }
+      console.log(i); // 출력: 1, 2, 4, 5
+    }
+
+    console.log("---------------------------------------");     // 줄바꿈 나타내기용 표시선
+
+// [3] 'hp' 에 100을 저장하세요.
+    let hp = 100;
+
+// [4] 계속 30씩 깎되, hp 가 0 이하가 되면 "사망" 출력 후 break 하세요.
+//     작성 공식: while(true){ hp -= 30; if(hp <= 0){ ... break; } console.log(hp); }
+    while(true){
+      
+      if(hp <= 0){
+        break;
+      }
+      console.log(hp);  // 출력: 100, 70, 40, 10
+      hp -= 30;
+    }
+
+
+    console.log("---------------------------------------");     // 줄바꿈 나타내기용 표시선
+
+// [5] 1부터 6까지 반복하며 짝수만 출력하세요. (홀수면 continue)
+//     작성 공식: if(i % 2 === 1){ continue; }
+    for(let i = 1; i <= 6; i++){
+      if(i % 2 === 1){
+        continue;
+      }
+      console.log(i); // 출력: 2, 4, 6
+    }
+  </script></body></html>
