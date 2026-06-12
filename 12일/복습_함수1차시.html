@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><title>함수 실습</title>
+<style>body{font-family:sans-serif;max-width:600px;margin:40px auto;padding:0 20px;line-height:1.8;font-size:16px}button{padding:8px 16px;font-size:15px;cursor:pointer;margin:4px}input{padding:8px;font-size:15px;width:250px}#out{margin-top:16px;padding:12px;background:#eef1fb;border-radius:8px;min-height:24px}</style>
+</head>
+<body>
+<h3>출력 결과는 F12 → Console 탭에서 확인하세요. 주석 설명을 보며 직접 코드를 작성하세요.</h3>
+<script>
+/*
+    주제 : 함수 정의와 호출
+
+    - 정의 : function 함수이름() { 실행할 코드 }  → 함수를 '만들기'만 함
+    - 호출 : 함수이름()  → 괄호를 붙여 '부르면' 그때 실행
+    - 핵심 : 괄호() = 실행. 같은 함수를 여러 번 호출할 수 있음
+*/
+
+// [1] "공격!" 을 출력하는 'attack' 함수를 만드세요.
+//     작성 공식: function 함수이름() { console.log("..."); }
+    function attack(){ 
+        console.log("공격!");
+    }
+
+// [2] attack 함수를 호출하세요. (괄호 붙이기)
+//     작성 공식: 함수이름();
+    attack();   // 출력: 공격!
+
+// [3] attack 함수를 한 번 더 호출하세요.
+    attack();   // 출력: 공격!
+
+// [4] "방어 태세!" 를 출력하는 'defend' 함수를 만드세요.
+    function defend(){
+        console.log("방어 태세!");
+    }
+
+// [5] defend 함수를 호출하세요.
+    defend();   // 출력: 방어 태세!
+
+// [6] "레벨업! 축하합니다" 를 출력하는 'levelUp' 함수를 만드세요.
+    function levelUp(){
+        console.log("레벨업! 축하합니다");
+    }
+
+// [7] levelUp 함수를 호출하세요.
+    levelUp();  // 출력: 레벨업! 축하합니다
+
+// [8] attack 을 두 번, defend 를 한 번 순서대로 호출하세요.
+    attack();   // 출력: 공격!
+    attack();   // 출력: 공격!
+    defend();   // 출력: 방어 태세!
+</script>
+</body>
+</html>

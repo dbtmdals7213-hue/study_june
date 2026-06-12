@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><title>제어문 실습</title>
+<style>body{font-family:sans-serif;max-width:600px;margin:40px auto;padding:0 20px;line-height:1.8;font-size:16px}button{padding:8px 16px;font-size:15px;cursor:pointer;margin:4px}input{padding:8px;font-size:15px;width:250px}#out{margin-top:16px;padding:12px;background:#eef1fb;border-radius:8px;min-height:24px}</style>
+</head>
+<body>
+<h3>출력 결과는 F12 → Console 탭에서 확인하세요. 주석 설명을 보며 직접 코드를 작성하세요.</h3>
+<script>
+/*
+    주제 : [종합 미니 프로젝트] 몬스터 웨이브 전투 시뮬레이터
+
+    제어문 단원에서 배운 모든 것을 사용합니다.
+    - for 반복 / while 반복 / if-else / else if / 나머지(%) / 누적(+=)
+
+    [완성 목표]
+    몬스터 5마리와 차례로 전투합니다. for 로 반복하며,
+    짝수 번째 몬스터는 치명타로 처치하고, 점수를 누적해
+    최종 결과를 등급으로 판정합니다.
+*/
+
+// ===== 1단계: 전투 준비 =====
+
+// [1] 'score'(점수)에 0, 'monsterCount'(몬스터 수)에 5를 저장하세요.
+//     작성 공식: let 변수이름 = 값;
+    let score = 0;  let monsterCount = 5;
+// [2] "전투 시작! 몬스터 " 와 monsterCount 와 "마리" 를 이어 붙여 출력하세요.
+//     작성 공식: console.log("문자열" + 변수 + "문자열");
+    console.log("전투 시작! 몬스터 " + monsterCount + "마리");
+
+console.log("---------------------------------------");     // 줄바꿈 나타내기용 표시선
+
+// ===== 2단계: for 반복으로 몬스터와 차례로 전투 =====
+
+// [3] i 를 1부터 monsterCount 까지 반복하세요.
+//     작성 공식: for (let i=1; i<=monsterCount; i++) { ... }
+    for(let i = 1; i <= monsterCount; i++){
+        // [4] (반복 안) i 가 짝수면(i % 2 === 0) 치명타!
+        //     "몬스터 i 치명타 처치! +20" 출력하고 score 에 20 누적
+        //     아니면 "몬스터 i 처치! +10" 출력하고 score 에 10 누적
+        //     작성 공식: if (i % 2 === 0) { ... score += 20; } else { ... score += 10; }
+        if(i % 2 ===0){
+            score += 20;
+            console.log(`몬스터 ${i} 치명타 처치! +${score}`);      // 출력: 몬스터 2 치명타 처치! +30, 몬스터 4 치명타 처치! +60
+        }else{
+            score += 10;
+            console.log(`몬스터 ${i} 처치! +${score}`);     // 출력: 몬스터 1 처치! +10, 몬스터 3 처치! +40, 몬스터 5 처치! +70
+        }
+    }
+
+console.log("---------------------------------------");     // 줄바꿈 나타내기용 표시선
+
+// ===== 3단계: 최종 점수 출력 =====
+
+// [5] "전투 종료! 최종 점수: " 와 score 를 이어 붙여 출력하세요.
+    console.log("전투 종료! 최종 점수: " + score);
+
+console.log("---------------------------------------");     // 줄바꿈 나타내기용 표시선
+
+// ===== 4단계: 점수로 등급 판정 (else if) =====
+
+// [6] score 80 이상 "S등급", 60 이상 "A등급", 그 외 "B등급"을 출력하세요.
+//     작성 공식: if(조건){ } else if(조건){ } else { }
+    if(score >= 80){
+        console.log("S등급");
+    }else if(score >= 60){
+        console.log("A등급");
+    }else{
+        console.log("B등급");
+    }
+
+console.log("---------------------------------------");     // 줄바꿈 나타내기용 표시선
+
+// ===== 5단계: while 로 보너스 골드 지급 =====
+
+// [7] 'bonusGold' 에 0을 저장하세요.
+    let bonusGold = 0;
+// [8] bonusGold 가 score 미만인 동안, 30씩 늘리며 출력하세요.
+//     주의: += 가 있어야 무한반복이 안 됩니다.
+//     작성 공식: while (조건) { bonusGold += 30; console.log(bonusGold); }
+    while(bonusGold < score){
+        console.log(bonusGold); // 출력: 0, 30, 60
+        bonusGold += 30;
+    }
+
+// 완성! 5마리 전투 → 점수 → 등급 → 보너스 골드가 출력되면 성공입니다.
+</script>
+</body>
+</html>
