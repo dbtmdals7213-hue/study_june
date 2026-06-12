@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><title>함수 실습</title>
+<style>body{font-family:sans-serif;max-width:600px;margin:40px auto;padding:0 20px;line-height:1.8;font-size:16px}button{padding:8px 16px;font-size:15px;cursor:pointer;margin:4px}input{padding:8px;font-size:15px;width:250px}#out{margin-top:16px;padding:12px;background:#eef1fb;border-radius:8px;min-height:24px}</style>
+</head>
+<body>
+<h3>출력 결과는 F12 → Console 탭에서 확인하세요. 주석 설명을 보며 직접 코드를 작성하세요.</h3>
+<script>
+/*
+    주제 : 매개변수와 인수
+
+    - 매개변수 : 함수 정의 괄호 안, 값을 '받는 자리'
+    - 인수     : 함수 호출 괄호 안, '실제 넣는 값'
+    - 인수가 매개변수 자리에 순서대로 들어감
+    - 매개변수가 여러 개면 쉼표로 구분
+*/
+
+// [1] damage 를 받아 "OOO 데미지!" 를 출력하는 'attack' 함수를 만드세요.
+//     작성 공식: function 함수이름(매개변수) { console.log(매개변수 + "..."); }
+    function attack(공격력){
+        console.log(공격력 + " 데미지!");
+    }
+
+// [2] attack 에 인수 30을 넣어 호출하세요.
+//     작성 공식: 함수이름(인수);
+    attack(30); // 출력: 30 데미지!
+
+// [3] attack 에 인수 50을 넣어 호출하세요.
+    attack(50); // 출력: 50 데미지!
+
+// [4] name 을 받아 "OOO 등장!" 을 출력하는 'appear' 함수를 만드세요.
+    function appear(name){
+        console.log(name + " 등장!");
+    }
+
+// [5] appear 에 "보스몬스터"를 넣어 호출하세요.
+    appear("보스몬스터");   // 출력: 보스몬스터 등장!
+
+// [6] a, b 두 개를 받아 더한 값을 출력하는 'add' 함수를 만드세요.
+//     작성 공식: function 함수이름(a, b) { console.log(a + b); }
+    function add (a, b){
+        console.log(a + b);
+    }
+
+// [7] add 에 3과 5를 넣어 호출하세요.
+    add(3, 5);  // 출력: 8
+
+// [8] attack(공격력)과 name 을 받아 "OOO에게 OO 데미지!" 출력하는 'hit' 함수를 만드세요.
+    function hit(name, 공격력){
+        console.log(name + "에게 " + 공격력 + "데미지!");
+    }
+// [9] hit 에 "고블린"과 25를 넣어 호출하세요.
+    hit("고블린", 25);  // 출력: 고블린에게 25데미지!
+</script>
+</body>
+</html>
