@@ -1,13 +1,13 @@
 JS -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-continue															/ continue.html
+continue															/ continue.html			/ 실습_제어문 5차시 (교안, 자습서)
 
-중첩 for 문															/ double_for_1 ~ 2.html
+중첩 for 문															/ double_for_1 ~ 2.html	/ 실습_제어문 6차시 (교안, 자습서)
 
-종합 문제															/ seat-result, test.html
+종합 문제															/ seat-result, test.html		/ 실습_제어문 6차시 (교안, 자습서)
 
-함수란?(함수 선언 및 호출 맛보기)											/ gugudan_console.html
+함수란?(함수 선언 및 호출 맛보기)											/ gugudan_console.html	/ 실습_함수 1, 2, 3차시 (교안, 자습서)
 
-함수 선언문														/ function.html
+함수 선언문														/ function.html			/ 실습_함수 1, 2, 3차시 (교안, 자습서)
 
 
 
@@ -25,3 +25,5 @@ in()
 like
 
 서브 쿼리
+
+* subquery_practice_no_aggregate.html 파일로 복습 *
