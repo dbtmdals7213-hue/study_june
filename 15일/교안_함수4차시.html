@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><title>실습 - 함수 4차시</title>
+<style>body{font-family:sans-serif;max-width:640px;margin:40px auto;padding:0 20px;line-height:1.7}
+.g{background:#fff7e8;border:1px solid #f0d999;border-radius:10px;padding:14px 16px;color:#6b4e16}
+code{background:#eee;border-radius:4px;padding:1px 6px;font-family:monospace}</style></head><body>
+  <h1>⌨️ 실습 - 화살표 함수</h1>
+  <div class="g"><b>준비:</b> 브라우저로 열고 <code>F12</code> → <b>콘솔</b> 탭을 켜두세요.</div>
+  <script>
+/*
+    주제 : 화살표 함수
+
+    - 작성 공식 : const 함수이름 = (매개변수) => 돌려줄값;
+    - 한 줄짜리는 return 과 중괄호 생략 가능
+    - 매개변수 1개면 괄호도 생략 가능
+*/
+
+// [1] a, b 를 더해 돌려주는 'add' 화살표 함수를 만드세요.
+//     작성 공식: const 함수이름 = (a, b) => a + b;
+    const add = (a, b) => a + b;
+    // => {return a + b;}; 와 같이 { } 안의 실행문이 한 줄인경우 { } 중괄호와 return 이 생략 가능! 
+
+// [2] add(5, 7) 를 출력하세요.
+    console.log(add(5, 7));   // 출력: 12
+    // 위 함수 정의에서 a(매개변수) 에 5(인수), b(매개변수) 에 7(인수) 이 입력되어 
+    // a + b 의 값을 반환(return)해서 12를 받음. 
+
+// -----------------------------------------------------------------------------------------------------
+
+// [3] x 를 받아 3배로 돌려주는 'triple' 화살표 함수를 만드세요.
+//     매개변수 1개면 괄호 생략: x => x * 3
+    const triple = x => x * 3
+    // 위 문장에서 (x) 처럼 매개변수가 1개인 경우 ( ) 의 괄호 생략 가능! 
+
+// [4] triple(10) 을 출력하세요.
+    console.log(triple(10));    // 출력: 30
+    // 위 함수 정의에서 x(매개변수) 에 10(인수) 이 입력되어
+    // x * 3 의 값을 반환(return)해서 30을 받음.
+
+// -----------------------------------------------------------------------------------------------------
+
+// [5] 공격력 a, 방어력 d 로 데미지를 돌려주는 'dmg' 화살표 함수를 만드세요.
+    const dmg = (a, d) => a - d;
+
+// [6] dmg(70, 30) 를 출력하세요.
+    console.log(dmg(70, 30));   // 출력: 40
+    // 위 함수 정의에서 a(매개변수) 에 70(인수), d(매개변수) 에 30(인수) 이 입력되어 
+    // a - d 의 값을 반환(return)해서 40을 받음. 
+
+// -----------------------------------------------------------------------------------------------------
+
+// [7] level 을 받아 필요경험치(level * 100)를 돌려주는 'needExp' 화살표 함수를 만드세요.
+    const needExp = level => level * 100;
+
+// [8] needExp(7) 를 출력하세요.
+    console.log(needExp(7));    // 출력: 700
+    // 위 함수 정의에서 level(매개변수) 에 7(인수) 이 입력되어
+    // level * 100 의 값을 반환(return)해서 700을 받음.
+
+
+</script></body></html>
