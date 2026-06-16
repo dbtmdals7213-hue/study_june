@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><title>실습 - 함수 5차시</title>
+<style>body{font-family:sans-serif;max-width:640px;margin:40px auto;padding:0 20px;line-height:1.7}
+.g{background:#fff7e8;border:1px solid #f0d999;border-radius:10px;padding:14px 16px;color:#6b4e16}
+code{background:#eee;border-radius:4px;padding:1px 6px;font-family:monospace}</style></head><body>
+  <h1>⌨️ 실습 - 지역변수 실험 (스코프)</h1>
+  <div class="g"><b>준비:</b> 브라우저로 열고 <code>F12</code> → <b>콘솔</b> 탭을 켜두세요.</div>
+  <script>
+/*
+    주제 : 스코프와 기본값 매개변수
+
+    - 스코프 : 함수 안에서 만든 변수는 그 함수 안에서만 사용 가능
+    - 기본값 매개변수 : function f(x = 10) { } → 인수 없으면 기본값 사용
+*/
+
+// [1] damage 를 받아 출력하되, 안 넣으면 20을 쓰는 'attack' 함수를 만드세요.
+//     작성 공식: function 함수이름(매개변수 = 기본값) { ... }
+    function attack(damage = 20){console.log(damage);}
+              // (매개변수 = 기본값)
+
+// [2] attack 을 35으로 호출하세요.
+    attack(35);
+  // 풀이: 입력한 인수 35를 매개변수인 damage 에 전달하여 damage = 35 로
+  //      사용하여 console.log(35); 을 실행하여 35를 출력한다.
+
+// [3] attack 을 인수 없이 호출하세요. (기본값 20)
+    attack();
+  // 풀이:  인수를 전달하지 않았을 때, 기본값(20)을 사용하여 함수를 실행하므로 
+  //       console.log(20); 을 실행하여 20을 출력한다. 
+
+// -------------------------------------------------------------------------------
+
+// [4] name 을 받아 인사하되, 안 넣으면 "용사"를 쓰는 'greet' 함수를 만드세요.
+    function greet(name = '용사'){console.log(`안녕! ${name}님!`)}
+              // (매개변수 = 기본값)
+
+// [5] greet 을 "마법사"로 호출하세요.
+    greet('마법사');
+  // 풀이: 입력한 인수 '전사'를 매개변수인 name 에 전달하여 name = '마법사' 로
+  //      사용하여 console.log('마법사'); 을 실행하여 '마법사' 를 출력한다.
+
+// [6] greet 을 인수 없이 호출하세요.
+    greet();
+  // 풀이:  인수를 전달하지 않았을 때, 기본값('용사')을 사용하여 함수를 실행하므로 
+  //       console.log('용사'); 을 실행하여 '용사' 를 출력한다. 
+
+// -------------------------------------------------------------------------------
+
+// [7] 함수 안에 지역변수를 만들고 출력하는 'test' 함수를 만들고 호출하세요.
+//     작성 공식: function test() { let secret = 100; console.log(secret); }
+    function test(){
+      let secret = 100;
+      console.log(secret);
+    }
+    test();
+  // 풀이: 지역 스코프 영역에서 정의한 지역 변수 secret 은 외부 영역(전역 스코프 영역)에서는
+  //       사용이 불가능 하지만, 내부 영역(지역 스코프)영역에서는 사용이 가능하므로, 출력하는
+  //       console.log(secret); 을 실행하여 내부에서 출력을 하는 실행코드를 작성한 경우,
+  //       함수를 실행하면 지역 변수를 지역 스코프 영역에서 실행한 출력이기 때문에 100 이 출력된다.
+
+  </script></body></html>
