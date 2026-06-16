@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><title>함수 실습</title>
+<style>body{font-family:sans-serif;max-width:600px;margin:40px auto;padding:0 20px;line-height:1.8;font-size:16px}button{padding:8px 16px;font-size:15px;cursor:pointer;margin:4px}input{padding:8px;font-size:15px;width:250px}#out{margin-top:16px;padding:12px;background:#eef1fb;border-radius:8px;min-height:24px}</style>
+</head>
+<body>
+<h3>출력 결과는 F12 → Console 탭에서 확인하세요. 주석 설명을 보며 직접 코드를 작성하세요.</h3>
+<script>
+/*
+    주제 : 기본값 매개변수와 스코프
+
+    - 기본값 매개변수 : function f(x = 10) { }
+        → 인수를 안 넣으면 기본값(10)이 사용됨
+    - 스코프 : 함수 안에서 만든 변수는 그 함수 안에서만 사용 가능
+        → 함수 밖에서 접근하면 에러 (변수를 모름)
+    - 함수마다 변수가 갇혀 있어 이름이 겹쳐도 안전
+*/
+
+// [1] damage 를 받아 출력하되, 안 넣으면 10을 쓰는 'attack' 함수를 만드세요.
+//     작성 공식: function 함수이름(매개변수 = 기본값) { ... }
+    function attack(damage = 10){console.log(damage);}
+                // (매개변수 = 기본값)
+// [2] attack 을 인수 30으로 호출하세요.
+    attack(30);  // 출력: 30(인수 30)
+
+// [3] attack 을 인수 없이 호출하세요. (기본값 10 사용)
+    attack();  // 출력: 10(기본값)
+
+// -------------------------------------------------------------------------------
+
+// [4] name 을 받아 인사하되, 안 넣으면 "용사"를 쓰는 'greet' 함수를 만드세요.
+    function greet(name = '용사'){console.log(`안녕하세요! ${name}님!`);}
+            //  (매개변수 = 기본값)
+// [5] greet 을 "기사"로 호출하세요.
+    greet('기사');  // 출력: 안녕하세요! 기사(인수)님!
+
+// [6] greet 을 인수 없이 호출하세요. (기본값 "용사")
+    greet();  // 출력: 안녕하세요! 용사(기본값)님!  
+
+// -------------------------------------------------------------------------------
+
+// [7] 함수 안에서 변수를 만들고 함수 안에서 출력하는 'test' 함수를 만드세요.
+//     함수 안에 let secret = 100; 을 만들고 출력
+    function test(){let secret = 100;}
+
+// [8] test 를 호출하세요.
+    console.log(test());    // 출력: undefined
+//  풀이: 지역 스코프 영역인 함수 안에서 생성한 지역 변수 secret 은 전역 스코프 영역에서 
+//       사용할 수 없으므로 출력을 해도 undefined 값이 나온다.
+
+// -------------------------------------------------------------------------------
+
+// [9] 'power'(공격횟수당 데미지)에 15, 'count' 에 3을 저장하세요.
+    let power = 15;     let count = 3;
+
+// [10] power 와 count 를 받아 총 데미지(power * count)를 돌려주는 'totalDmg' 함수를
+//      만들고, power 와 count 를 넣어 호출한 결과를 출력하세요.
+    function totalDmg(power, count){return power * count;}
+    console.log(totalDmg(power, count));
+
+//  풀이: 지역 스코프 영역 내부에서 전역 변수인 power, count 의 값을 얻어 사용할 수 있기 때문에
+//       15, 3 의 인수를 매개변수에 입력받아 함수 실행코드를 실행할 수 있다.
+
+</script>
+</body>
+</html>
