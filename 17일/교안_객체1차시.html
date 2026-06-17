@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><title>실습 - 객체 1차시</title>
+<style>body{font-family:sans-serif;max-width:640px;margin:40px auto;padding:0 20px;line-height:1.7}
+.g{background:#fff7e8;border:1px solid #f0d999;border-radius:10px;padding:14px 16px;color:#6b4e16}
+code{background:#eee;border-radius:4px;padding:1px 6px;font-family:monospace}</style></head><body>
+  <h1>⌨️ 실습 - 캐릭터 만들기</h1>
+  <div class="g"><b>준비:</b> 브라우저로 열고 <code>F12</code> → <b>콘솔</b> 탭을 켜두세요.</div>
+  <script>
+/*
+    주제 : 객체 만들기와 점 표기법
+
+    - 객체 : 값을 이름표(key)로 구분해 담는 자료. 중괄호 { }
+    - 작성 공식 : let 객체이름 = { key: value, key2: value2 };
+    - 꺼내기 : 객체.key (점 표기법)
+*/
+
+// [1] name "기사", hp 100, level 5 를 담은 'character' 객체를 만드세요.
+//     작성 공식: let 객체 = { key: value, ... };
+    let character = { 
+      name: "기사",       // {속성명1: 값1,
+      hp: 100,           // 속성명2: 값2,
+      level: 5           // 속성명3: 값3};
+    };
+
+// [2] character 의 name 을 꺼내 출력하세요.
+//     작성 공식: console.log(객체.key);
+    console.log(character.name);    // 출력: "기사"
+
+// [3] character 의 hp 를 꺼내 출력하세요.
+    console.log(character.hp);      // 출력: 100
+
+// [4] character 의 level 을 꺼내 출력하세요.
+    console.log(character.level);     // 출력: 5
+
+// [5] "이름: " 과 character.name 을 이어 붙여 출력하세요.
+//     작성 공식: console.log("문자열" + 객체.key);
+    console.log("이름: " + character.name);     // 출력: 이름: "기사"
+
+// [6] character 의 hp 와 level 을 더해 출력하세요.
+//     작성 공식: console.log(객체.key1 + 객체.key2);
+    console.log(character.hp + character.level);    // 100 + 5 -> 105 출력
+
+// ------------------------------------------------------------------------------------------------
+
+// [7] title "물약", price 50 을 담은 'item' 객체를 만들고, 둘을 함께 출력하세요.
+//     작성 공식: console.log(객체.key1, 객체.key2);
+    let item = {
+      title: "물약",      // {속성명1: 값1,
+      price: 50          // 속성명2: 값2};
+    };
+    console.log(item.title, item.price);    // 출력: 물약 50
+
+  </script></body></html>
