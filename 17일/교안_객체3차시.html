@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><title>실습 - 객체 3차시</title>
+<style>body{font-family:sans-serif;max-width:640px;margin:40px auto;padding:0 20px;line-height:1.7}
+.g{background:#fff7e8;border:1px solid #f0d999;border-radius:10px;padding:14px 16px;color:#6b4e16}
+code{background:#eee;border-radius:4px;padding:1px 6px;font-family:monospace}</style></head><body>
+  <h1>⌨️ 실습 - 캐릭터에 행동 넣기</h1>
+  <div class="g"><b>준비:</b> 브라우저로 열고 <code>F12</code> → <b>콘솔</b> 탭을 켜두세요.</div>
+  <script>
+/*
+    주제 : 메서드 (객체 속 함수)
+
+    - 메서드 : 객체의 value 에 함수를 넣은 것 (객체의 행동)
+    - 작성 공식 : let 객체 = { 메서드이름: function() { ... } };
+    - 호출 시 괄호() 필수 : 속성(괄호X) vs 메서드(괄호O)
+*/
+
+// [1] name "전사" 와, "공격!"을 출력하는 attack 메서드를 담은
+//     'character' 객체를 만드세요.
+//     작성 공식: let 객체 = { name:"전사", attack: function(){ ... } };
+    let character = {
+      name: "전사",
+      attack: function(){
+        console.log("돌격!");
+      }
+    };
+
+// [2] character 의 name 을 출력하세요. (속성, 괄호 없음)
+//     작성 공식: console.log(객체.key);
+    console.log(character.name);    // 출력: 전사
+// character.name 으로 name(속성명) 의 값이 출력되어 "전사" 가 출력된다
+
+// [3] character 의 attack 메서드를 호출하세요. (괄호 필수!)
+//     작성 공식: 객체.메서드();
+    console.log(character.attack());  // 출력: 돌격!
+    // 위의 character.name 과 달리 메소드 함수에 출력 구문이 있으므로, 메서드를 호출하면 출력이 된다.
+
+// ------------------------------------------------------------------------------------------------
+
+// [4] name "마법사" 와 "파이어볼!"을 출력하는 cast 메서드를 담은
+//     'wizard' 객체를 만드세요.
+    let wizard = {
+      name: "마법사",
+      cast: function(){
+        console.log("파이어볼!");
+      }
+    };
+
+// [5] wizard 의 cast 메서드를 호출하세요.
+    wizard.cast();    // 출력: 파이어볼!
+//  cast(속성명) 안의 메소드에 저장된 함수 구문(값)을 호출하면 출력 구문인 console.log 로 출력이 된다.
+
+// ------------------------------------------------------------------------------------------------
+
+// [6] hp 100 과 "회복!"을 출력하는 heal 메서드를 담은 'priest' 객체를 만드세요.
+    let priest = {
+      hp: 100,
+      heal: function(){
+        console.log("회복!");
+      }
+    };
+
+// [7] priest 의 hp 를 출력하세요. (속성)
+    console.log(priest.hp);   // 출력: 100
+// priest.hp 로 hp(속성명) 의 값이 출력되어 100 이 출력된다
+
+// [8] priest 의 heal 메서드를 호출하세요. (메서드)
+    priest.heal();    // 출력: 회복!
+    // 위의 priest.hp 와 달리 메소드 함수에 console.log 출력 구문이 있으므로, 메서드를를 호출하면 출력이 된다.
+
+  </script></body></html>
