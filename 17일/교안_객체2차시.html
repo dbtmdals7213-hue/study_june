@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><title>실습 - 객체 2차시</title>
+<style>body{font-family:sans-serif;max-width:640px;margin:40px auto;padding:0 20px;line-height:1.7}
+.g{background:#fff7e8;border:1px solid #f0d999;border-radius:10px;padding:14px 16px;color:#6b4e16}
+code{background:#eee;border-radius:4px;padding:1px 6px;font-family:monospace}</style></head><body>
+  <h1>⌨️ 실습 - 레벨업 시스템</h1>
+  <div class="g"><b>준비:</b> 브라우저로 열고 <code>F12</code> → <b>콘솔</b> 탭을 켜두세요.</div>
+  <script>
+/*
+    주제 : 객체 값 추가/수정/삭제
+
+    - 객체.key = 값 : 있으면 수정, 없으면 추가
+    - delete 객체.key : 삭제
+    - 모두 점 표기법 사용
+*/
+
+// [1] name "마법사", hp 100 을 담은 'character' 객체를 만드세요.
+//     작성 공식: let 객체 = { key: value, ... };
+    let character = {
+      name: "마법사",
+      hp: 100
+    };
+
+// [2] character 의 hp 를 60으로 수정하세요. (이미 있는 key)
+//     작성 공식: 객체.key = 새값;
+    character.hp = 60;
+    // 속성명 hp = 60 으로 "값" 수정
+
+// [3] character 의 hp 를 출력하세요.
+    console.log(character.hp);    // 60
+    // 위에서 수정한 "값" 60 으로 출력
+
+// [4] character 에 level 5 를 새로 추가하세요. (없던 key)
+//     작성 공식: 객체.새key = 값;
+
+    character.level = 5;
+      //  level(속성명) 에 5(값) 추가
+
+// [5] character 에 job "전사" 를 추가하세요.
+    character.job = "전사";
+      //  job(속성명) 에 "전사"(값) 추가
+
+// [6] character 전체를 출력하세요.
+    console.log(JSON.stringify(character));   // character 전체 문자열로 출력
+//  {"name":"마법사","hp":60,"level":5,"job":"전사"}
+
+// [7] character 의 level 을 삭제하세요.
+//     작성 공식: delete 객체.key;
+    delete character.level;
+    //  character(객체) 의 level(속성명) 삭제
+
+// [8] character 전체를 출력하세요. (level 사라짐)
+    console.log(JSON.stringify(character));   // character 전체 문자열로 출력
+//  {"name":"마법사","hp":60,"job":"전사"}
+
+// [9] character 의 hp 를 20 줄이세요. (현재값에서 빼서 저장)
+//     작성 공식: 객체.key = 객체.key - 값;
+    character.hp = character.hp - 20;
+    //           =           60 - 20; -> 40 출력
+    console.log(character.hp);  // 40
+
+  </script></body></html>
