@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><title>실습 - 객체 5차시</title>
+<style>body{font-family:sans-serif;max-width:640px;margin:40px auto;padding:0 20px;line-height:1.7}
+.g{background:#fff7e8;border:1px solid #f0d999;border-radius:10px;padding:14px 16px;color:#6b4e16}
+code{background:#eee;border-radius:4px;padding:1px 6px;font-family:monospace}</style></head><body>
+  <h1>⌨️ 실습 - 몬스터 도감 (미니 프로젝트)</h1>
+  <div class="g"><b>준비:</b> 브라우저로 열고 <code>F12</code> → <b>콘솔</b> 탭을 켜두세요. 단원 전체를 활용한 종합 도전입니다!</div>
+  <script>
+// 주제 : [미니 프로젝트] 몬스터 도감 만들기
+//   객체 단원 전체 활용: 객체 생성/속성·메서드/객체 배열/for 순회/값 수정
+//   목표 : 몬스터를 객체 배열로 저장 → 도감 출력 → 강화 → 강한 몬스터 선별
+
+// ===== 1단계: 도감(객체 배열) 만들기 =====
+// [1] 아래 3마리를 담은 monsters 배열을 만드세요.
+//     {name:"고블린", hp:30, atk:10}
+//     {name:"오크", hp:60, atk:20}
+//     {name:"드래곤", hp:200, atk:50}
+//     작성 공식: let 배열 = [ {...}, {...}, {...} ];  ↓
+    let monsters = [
+      {
+        name: "고블린",
+        hp: 30,
+        atk: 50
+      },
+      {
+        name: "오크",
+        hp: 60,
+        atk: 20
+      },
+      {
+        name: "드래곤",
+        hp: 200,
+        atk: 50
+      }
+    ];
+
+// [2] "===== 몬스터 도감 =====" 를 출력하세요.  ↓
+
+// ===== 2단계: 도감 전체 출력 (for) =====
+// [3] for 문으로 "OO - HP:OO, 공격력:OO" 형태로 전체를 출력하세요.
+//     작성 공식: console.log(배열[i].name + " - HP:" + 배열[i].hp + ", 공격력:" + 배열[i].atk);  ↓
+      for(let i = 0; i < monsters.length; i++){
+        console.log(monsters[i].name + " - HP:" + monsters[i].hp + ", 공격력:" + monsters[i].atk);
+      }
+
+// --------------------------------------------------------------------------------------------------------
+
+// [4] 총 몬스터 수(length)를 출력하세요.  ↓
+      console.log(monsters.length);
+
+// --------------------------------------------------------------------------------------------------------
+
+// ===== 3단계: 특정 몬스터 강화 (값 수정) =====
+// [5] 0번 몬스터(고블린)의 hp 를 50 으로 수정하세요.
+//     작성 공식: 배열[번호].key = 새값;  ↓
+      monsters[0].hp = 50;
+
+// [6] 0번 몬스터에 isBoss true 를 추가하세요. (없던 key)  ↓
+      monsters[0].isBoss = true;
+
+// [7] 0번 몬스터 전체를 출력하세요.  ↓
+      console.log(JSON.stringify(monsters));
+
+// --------------------------------------------------------------------------------------------------------
+
+// ===== 4단계: 공격력 합산 (for 누적) =====
+// [8] 합계 totalAtk 에 0 을 저장하세요.  ↓
+      let totalAtk = 0;
+
+// [9] for 문으로 모든 몬스터의 atk 를 totalAtk 에 누적하세요.
+//     작성 공식: 반복 안에서 totalAtk += 배열[i].atk;  ↓
+      for(let i = 0; i < monsters.length; i++){
+        totalAtk += monsters[i].atk;
+      }
+
+// [10] "전체 공격력 합: " 과 totalAtk 를 이어 붙여 출력하세요.  ↓
+      console.log("전체 공격력 합: " + totalAtk);
+
+// --------------------------------------------------------------------------------------------------------
+
+// ===== 5단계: 강한 몬스터 선별 (filter + map) =====
+// [11] filter 로 hp 100 이상인 몬스터만 골라 strong 에 저장하세요.
+//      작성 공식: let 새배열 = 배열.filter(m >= m.hp >= 100);  ↓
+      let strong = monsters.filter(m => m.hp >= 100).map(m => m.name);
+
+// [12] for 문으로 strong 의 name 만 "강한 몬스터: OO" 형태로 출력하세요.  ↓
+      for(let i = 0; i < strong.length; i++) {
+        console.log(`강한 몬스터: ${strong[i]}`);
+      }
+
+// [13] map 으로 모든 몬스터의 name 만 뽑은 새 배열을 출력하세요.
+//      작성 공식: 배열.map(m => m.name)  ↓
+      console.log(JSON.stringify(monsters.map(m => m.name)));
+      
+// [14] 0번 몬스터가 보스인지(isBoss) 출력하세요.  ↓
+      console.log(monsters[0].isBoss);
+
+// ✅ 도감 → 강화 → 공격력합80 → 강한몬스터(드래곤) → 이름목록 이 나오면 성공!
+  </script></body></html>
