@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>계산기</title>
+
+	<style>
+		/* * 선택자 : 페이지 안의 모든 요소(태그)에 공통으로 적용 */
+		* {
+			box-sizing: border-box; /* padding, border를 포함해서 요소의 전체 너비·높이를 계산 */
+			margin: 0; /* 요소 바깥쪽 여백을 0으로 설정 (기본 여백 제거) */
+			padding: 0; /* 요소 안쪽 여백을 0으로 설정 (기본 여백 제거) */
+		}
+
+		/* body : 웹 페이지 전체(화면 배경 영역)에 적용 */
+		body {
+			min-height: 100vh; /* 최소 높이를 화면 전체 높이(100vh)만큼 확보 */
+			display: flex; /* 자식 요소를 유연하게 배치하는 flex 레이아웃 사용 */
+			align-items: center; /* flex 방향(세로) 기준으로 가운데 정렬 */
+			justify-content: center; /* flex 방향(가로) 기준으로 가운데 정렬 */
+			background: linear-gradient(145deg, #e8ecf1 0%, #d5dce6 100%); /* 145도 각도로 밝은 회색 그라데이션 배경 */
+			font-family: "Segoe UI", "Malgun Gothic", sans-serif; /* 글꼴 지정 (영문 Segoe UI, 한글 맑은 고딕, 없으면 sans-serif) */
+		}
+
+		/* .calculator : class="calculator"인 div(계산기 본체)에 적용 */
+		.calculator {
+			background: #1c1c1e; /* 배경색 : 진한 다크 그레이 */
+			border-radius: 20px; /* 모서리를 20px만큼 둥글게 */
+			padding: 20px; /* 안쪽 여백 20px (테두리와 내용 사이 간격) */
+			box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25); /* 아래쪽으로 20px, 흐림 60px, 25% 투명도 검은 그림자 */
+			width: 320px; /* 계산기 본체 가로 너비 320px */
+		}
+
+		/* .calculator table : 계산기 안의 table(버튼 표)에 적용 */
+		.calculator table {
+			width: 100%; /* 표 너비를 부모(.calculator)의 100%로 채움 */
+			border-collapse: separate; /* 셀 테두리를 각각 따로 그림 (간격 사용 가능) */
+			border-spacing: 10px; /* 셀(버튼) 사이 간격 10px */
+		}
+
+		/* td : 표의 각 칸(셀)에 적용 */
+		td {
+			padding: 0; /* 셀 안쪽 여백 0 (버튼이 칸을 꽉 채우도록) */
+		}
+
+		/* #data : id="data"인 input(숫자·수식 표시 화면)에 적용 */
+		#data {
+			width: 100%; /* 가로 너비를 부모(td)의 100%로 채움 */
+			height: 72px; /* 세로 높이 72px */
+			padding: 0 20px; /* 위·아래 0, 좌·우 20px 안쪽 여백 */
+			border: none; /* 테두리 없음 */
+			border-radius: 12px; /* 모서리를 12px만큼 둥글게 */
+			background: #2c2c2e; /* 배경색 : 어두운 회색 */
+			color: #ffffff; /* 글자색 : 흰색 */
+			font-size: 2rem; /* 글자 크기 (기본 글자의 2배) */
+			font-weight: 300; /* 글자 굵기 : 얇은 편 (100~900, 400=보통) */
+			text-align: right; /* 글자를 오른쪽 정렬 (계산기처럼) */
+			letter-spacing: 1px; /* 글자 사이 간격 1px */
+			outline: none; /* 클릭(포커스) 시 나타나는 테두리 선 제거 */
+		}
+
+		/* input[type="button"] : type="button"인 모든 input(계산기 버튼)에 공통 적용 */
+		input[type="button"] {
+			width: 100%; /* 버튼 가로 너비를 칸(td)의 100%로 채움 */
+			height: 56px; /* 버튼 세로 높이 56px */
+			border: none; /* 버튼 테두리 없음 */
+			border-radius: 12px; /* 버튼 모서리를 12px만큼 둥글게 */
+			font-size: 1.25rem; /* 글자 크기 (기본 글자의 1.25배) */
+			font-weight: 500; /* 글자 굵기 : 중간보다 약간 굵게 */
+			cursor: pointer; /* 마우스를 올리면 손가락(클릭 가능) 모양으로 변경 */
+			transition: background 0.15s ease, transform 0.1s ease; /* 배경색·크기 변화를 0.15초·0.1초 동안 부드럽게 */
+			font-family: inherit; /* 글꼴을 부모(body)에서 지정한 글꼴 그대로 사용 */
+		}
+
+		/* input[type="button"]:active : 버튼을 클릭하고 누르고 있는 순간에 적용 */
+		input[type="button"]:active {
+			transform: scale(0.96); /* 버튼 크기를 96%로 살짝 줄여 눌리는 느낌 표현 */
+		}
+
+		/* 숫자 버튼 (0~9, 소수점 .) */
+		input[value="0"],
+		input[value="1"],
+		input[value="2"],
+		input[value="3"],
+		input[value="4"],
+		input[value="5"],
+		input[value="6"],
+		input[value="7"],
+		input[value="8"],
+		input[value="9"],
+		input[value="."] {
+			background: #3a3a3c; /* 배경색 : 회색 (숫자 버튼) */
+			color: #ffffff; /* 글자색 : 흰색 */
+		}
+
+		/* 숫자 버튼에 마우스를 올렸을 때(:hover) */
+		input[value="0"]:hover,
+		input[value="1"]:hover,
+		input[value="2"]:hover,
+		input[value="3"]:hover,
+		input[value="4"]:hover,
+		input[value="5"]:hover,
+		input[value="6"]:hover,
+		input[value="7"]:hover,
+		input[value="8"]:hover,
+		input[value="9"]:hover,
+		input[value="."]:hover {
+			background: #48484a; /* 배경색을 조금 더 밝은 회색으로 변경 (마우스 올림 효과) */
+		}
+
+		/* 연산자 버튼 (+, -, X, /) */
+		input[value="+"],
+		input[value="-"],
+		input[value="X"],
+		input[value="/"] {
+			background: #ff9f0a; /* 배경색 : 주황색 (연산자 버튼) */
+			color: #ffffff; /* 글자색 : 흰색 */
+		}
+
+		/* 연산자 버튼에 마우스를 올렸을 때(:hover) */
+		input[value="+"]:hover,
+		input[value="-"]:hover,
+		input[value="X"]:hover,
+		input[value="/"]:hover {
+			background: #ffb340; /* 배경색을 더 밝은 주황색으로 변경 */
+		}
+
+		/* = (계산 실행) 버튼 */
+		input[value="="] {
+			background: #0a84ff; /* 배경색 : 파란색 */
+			color: #ffffff; /* 글자색 : 흰색 */
+			font-size: 1.4rem; /* = 기호를 다른 버튼보다 조금 크게 표시 */
+		}
+
+		/* = 버튼에 마우스를 올렸을 때(:hover) */
+		input[value="="]:hover {
+			background: #409cff; /* 배경색을 더 밝은 파란색으로 변경 */
+		}
+
+		/* clear (초기화) 버튼 */
+		input[value="clear"] {
+			background: #636366; /* 배경색 : 중간 회색 */
+			color: #ffffff; /* 글자색 : 흰색 */
+			font-size: 1rem; /* 글자 크기 : 기본 크기 */
+			letter-spacing: 0.5px; /* 글자 사이 간격 0.5px (clear 글자 가독성) */
+		}
+
+		/* clear 버튼에 마우스를 올렸을 때(:hover) */
+		input[value="clear"]:hover {
+			background: #787880; /* 배경색을 더 밝은 회색으로 변경 */
+		}
+	</style>
+	
+	<!-- CDN을 사용한 예시 (웹 환경) Math.js 라이브러리 사용 (가장 안전하고 강력한 방법) -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+	
+	<script type="text/javascript">
+	/*
+		============================================================
+		[작성 문법 기준]
+		============================================================
+		[1] 작성 문법 - get 선택 메소드
+		document.getElementById("id값")
+		document.getElementsByClassName("class값")
+		document.getElementsByTagName("태그명")
+
+		[2] 작성 문법 - 입력값 읽기와 숫자 변환
+
+		let 값 = 입력요소.value;
+		let 숫자 = Number(입력요소.value);
+		let 정수 = parseInt(입력요소.value, 10);
+
+
+		[3] 작성 문법 - 계산기 기본 흐름
+
+		let num1 = Number(첫번째입력요소.value);
+		let num2 = Number(두번째입력요소.value);
+		let op = 연산자입력요소.value;
+		let result;
+
+		if(op === "+"){
+			result = num1 + num2;
+		}else if(op === "-"){
+			result = num1 - num2;
+		}
+
+		결과요소.textContent = result;
+
+		[4] 작성 문법 - 결과 출력
+
+		결과요소.textContent = 결과값;
+		결과요소.innerHTML = 결과HTML;
+		============================================================
+	*/
+	function calculate (experssion){ return new Function(`return ${experssion}`)(); }
+	// calculate 이름의 함수를 설정하고, 매개변수명을 experssion으로 설정, 외부에서 받아온 Function 함수를 실행한 값을 반환 받으려고 하는데,
+	// Function 함수에 매개변수 experssion 을 반환하여 Function 함수에서 실행한 값을 다시 반환 받는 실행을 하는 코드를 가진 함수.
+
+	function renew(math){	// renew 라는 함수명을 가지고, math 매개변수명을 가진 함수를 실행하는 코드를 작성하는 영역.
+		
+		let data = document.getElementById("data");
+		// data 변수에, 부모 요소 노드인 document 의 id 속성의 값이 data 인 <input id="data"> 의 요소노드 하나를 반환받은 값을 저장한다.
+
+		
+		if (data.value === "" && (math === "+" || math === "-" || math === "*" || math === "/")) {
+        	return;
+    	}
+		// +, -, *, / 등의 연산자 기호로 시작하고 "=" 을 입력하면 console 오류가 출력되기 때문에 제일 앞 부분에 연산자 기호가 오면
+		// "" 값을 return 해서 data.value 에 빈 공백이 입력되어 <input id="data"> input 영역에 연산자 기호가 출력되지 않도록 설정
+
+
+		if(math === '='){	// 만약, math 매개변수에 전달한 인수 값이 '=' 이라면?
+			data.value = calculate(data.value);
+			// -> document.getElementById("data").value = document.getElementById("data").value + math;
+			// -> 부모 요소 노드인 document 의 id 속성의 값이 data 인 <input id="data"> 의 요소노드 하나를 반환하고,
+			//    반환한 값을 data 변수에 저장시킨 후 data.value 에서, 반환해온 data 변수의 value 속성값에
+			//    위에서 설정한 calculate 함수에 인수로 data 변수의 value 속성값을 넣고 실행하여 반환받은 함수의 값을
+			//    다시 data 변수의 value 속성값에 저장한다.
+
+
+		}else if(math === 'clear'){	// 그렇지 않고, math 매개변수에 전달한 인수 값이 'clear' 라면?
+			data.value = ""
+			// -> document.getElementById("data").value = "";
+			// -> 부모 요소 노드인 document 의 id 속성의 값이 data 인 <input id="data"> 의 요소노드 하나를 반환하고,
+			//    반환한 값을 data 변수에 저장시킨 후 data.value 에서, 반환해온 data 변수의 value 속성값에
+			//    "" 빈공백 문자열을 추가하여 data 변수의 value 속성에 저장한다.
+
+
+		}else{	// 위 두 if 와 else if 조건을 만족하지 않고, 나머지(숫자, 연산자 기호) 인수 값이 입력되었다면?
+			data.value += math;
+			// data.value = data.value + math;
+			// -> document.getElementById("data").value = document.getElementById("data").value + math;
+			// -> 부모 요소 노드인 document 의 id 속성의 값이 data 인 <input id="data"> 의 요소노드 하나를 반환하고,
+			//	  반환한 값을 data 변수에 저장시킨 후 data.value 에서, 반환해온 data 변수의 value 속성값에 
+			//    math 매개변수로 입력받은 값을 더한 최종 값을 다시 data 변수의 value 속성에 저장한다.
+		}
+		
+
+	}
+	
+	</script>
+
+</head>
+<body>
+
+	<div class="calculator">
+	<table>
+		<tr>
+			<td colspan="4"><input id="data" name="data2" readonly value=""></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="1" onclick="renew(1);"></td>
+			<td><input type="button" value="2" onclick="renew(2);"></td>
+			<td><input type="button" value="3" onclick="renew(3);"></td>
+			<td><input type="button" value="+" onclick="renew('+');"></td> 
+		</tr>
+		<tr>
+			<td><input type="button" value="4" onclick="renew(4);"></td>
+			<td><input type="button" value="5" onclick="renew(5);"></td>
+			<td><input type="button" value="6" onclick="renew(6);"></td>
+			<td><input type="button" value="-" onclick="renew('-');"></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="7" onclick="renew(7);"></td>
+			<td><input type="button" value="8" onclick="renew(8);"></td>
+			<td><input type="button" value="9" onclick="renew(9);"></td>
+			<td><input type="button" value="X" onclick="renew('*');"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="button" value="0" onclick="renew(0);"></td>
+			<td><input type="button" value="." onclick="renew('.');"></td>
+			<td><input type="button" value="/" onclick="renew('/');" ></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="button" value="=" onclick="renew('=');"></td>
+			<td colspan="2"><input type="button" value="clear" onclick="renew('clear');"></td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>
+
+
+
+
+
