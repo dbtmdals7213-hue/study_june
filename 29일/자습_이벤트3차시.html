@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><title>이벤트 실습</title>
+<style>body{font-family:sans-serif;max-width:600px;margin:40px auto;padding:0 20px;line-height:1.8;font-size:16px}button{padding:8px 16px;font-size:15px;cursor:pointer;margin:4px}input{padding:8px;font-size:15px;width:250px}#out{margin-top:16px;padding:12px;background:#eef1fb;border-radius:8px;min-height:24px}</style>
+</head>
+<body>
+<h3>주석 설명을 보며 직접 코드를 작성하세요. (아래 화면 요소를 자바스크립트로 다룹니다)</h3>
+<input id="nameBox" type="text" placeholder="이름을 입력하세요">
+<div id="out">여기에 실시간으로 나옵니다</div>
+
+<script>
+/*
+    주제 : 입력 이벤트 (실시간 반응)
+
+    - "input" 이벤트 : 입력칸에 글자를 칠 때마다 실시간 발생
+    - 입력칸.value : 입력칸에 사용자가 친 현재 값
+    - 주의 : 입력칸 값은 .textContent 가 아니라 .value 로 꺼냄
+    - 작성 공식 : 입력칸.addEventListener("input", function() { ... 입력칸.value ... });
+*/
+
+// [1] id가 nameBox 인 입력칸을 선택해 'box' 변수에 저장하세요.
+//     작성 공식: let 변수 = document.querySelector("#아이디");
+    let box = document.querySelector("#nameBox");
+
+// [2] id가 out 인 요소를 선택해 'out' 변수에 저장하세요.
+    let out = document.querySelector("#out");
+
+// [3] box 에 input 이벤트를 연결하세요.
+//     입력할 때마다 out 의 글자를 box.value(입력칸 현재 값)로 바꾸도록 만드세요.
+//     작성 공식:
+//       대상.addEventListener("input", function() {
+//         out.textContent = box.value;
+//       });
+    box.addEventListener("input", function(){
+        out.textContent = box.value;
+        console.log(box.value.length);
+    });
+
+// [4] box 에 또 다른 input 이벤트를 연결해, 입력 글자 수를 콘솔에 출력하세요.
+//     작성 공식: console.log(입력칸.value.length);
+    
+    // [3] 에 입력
+
+// 입력칸에 글자를 쳐보세요! 아래에 실시간으로 나타나면 성공입니다.
+</script>
+</body>
+</html>

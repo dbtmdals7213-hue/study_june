@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><title>실습 - 이벤트 4차시</title>
+<style>body{font-family:sans-serif;max-width:640px;margin:40px auto;padding:0 20px;line-height:1.7}
+.g{background:#fff7e8;border:1px solid #f0d999;border-radius:10px;padding:14px 16px;color:#6b4e16;margin-bottom:16px}
+code{background:#eee;border-radius:4px;padding:1px 6px;font-family:monospace}
+button{padding:8px 16px;border:0;border-radius:8px;background:#b45309;color:#fff;font-weight:700;cursor:pointer;font-size:1rem}
+input{padding:8px 12px;border:2px solid #d9c9a3;border-radius:8px;font-size:1rem}
+.stage{border:2px dashed #d9c9a3;border-radius:10px;padding:20px;margin:16px 0;text-align:center}</style></head><body>
+  <h1>⌨️ 실습 - 미니 클리커 게임 (미니 프로젝트)</h1>
+  <div class="g"><b>준비:</b> 브라우저로 열고, 화면 요소를 자바스크립트로 다뤄 종합 작품을 완성하세요!</div>
+  <input id="nick" type="text" placeholder="닉네임 입력">
+  <p id="hello">환영합니다!</p>
+  <hr>
+  <p id="score" style="font-size:2rem;font-weight:700">점수: 0</p>
+  <p id="level">레벨: 1</p>
+  <button type="button" id="clickBtn">클릭!</button>
+  <button type="button" id="resetBtn">리셋</button>
+  <script>
+/* [실습 HTML 요소]
+<input id="nick" type="text" placeholder="닉네임 입력">
+  <p id="hello">환영합니다!</p>
+  <hr>
+  <p id="score" style="font-size:2rem;font-weight:700">점수: 0</p>
+  <p id="level">레벨: 1</p>
+  <button type="button" id="clickBtn">클릭!</button>
+  <button type="button" id="resetBtn">리셋</button>
+*/
+
+// 주제 : [미니 프로젝트] 미니 클리커 게임
+//   이벤트 단원 전체 활용: 클릭 이벤트/카운터/입력 이벤트/여러 이벤트 연결
+//   목표 : 클릭으로 점수↑, 10점에 레벨업, 닉네임 실시간, 리셋
+
+// ===== 1단계: 요소 선택 =====
+// [1] id가 score, level, clickBtn, resetBtn, nick, hello 인 요소들을 각각 변수에 저장하세요.
+//     작성 공식: let 변수 = document.querySelector("#아이디");  ↓
+    let scoreEl = document.querySelector("#score");
+    let levelEl = document.querySelector("#level");
+    let clickBtn = document.querySelector("#clickBtn");
+    let resetBtn = document.querySelector("#resetBtn");
+    let nick = document.querySelector("#nick");
+    let hello = document.querySelector("#hello");
+
+// -----------------------------------------------------------------------------------------------
+
+// ===== 2단계: 점수 변수 (함수 밖!) =====
+// [2] score 변수를 만들고 0 을 저장하세요.
+//     작성 공식: let 변수 = 0;  ↓
+    let score = 0;
+
+// -----------------------------------------------------------------------------------------------
+    
+// ===== 3단계: 클릭 이벤트 (점수↑ + 레벨업) =====
+// [3] clickBtn 에 클릭 이벤트를 연결하세요.
+//     클릭하면 ① score++ ② scoreEl 글자를 "점수: " + score ③ score>=10 이면 levelEl 글자 "레벨: 2"
+//     작성 공식:
+//       clickBtn.addEventListener("click", function() {
+//         score++;
+//         scoreEl.textContent = "점수: " + score;
+//         if (score >= 10) { levelEl.textContent = "레벨: 2"; }
+//       });  ↓
+    clickBtn.addEventListener("click", function(){
+      score++;
+      scoreEl.textContent = "점수: " + score;
+      if (score >= 10){
+        levelEl.textContent = "레벨: 2";
+      }
+    });
+  
+// -----------------------------------------------------------------------------------------------
+
+// ===== 4단계: 리셋 이벤트 =====
+// [4] resetBtn 에 클릭 이벤트를 연결하세요.
+//     클릭하면 score 를 0 으로, scoreEl "점수: 0", levelEl "레벨: 1" 로 되돌리세요.  ↓
+    resetBtn.addEventListener("click", function(){
+      score = 0;
+      scoreEl.textContent = "점수: " + score;
+      levelEl.textContent = "레벨: 1";
+    });
+
+// -----------------------------------------------------------------------------------------------
+
+// ===== 5단계: 입력 이벤트 (실시간 인사) =====
+// [5] nick 에 input 이벤트를 연결하세요.
+//     입력할 때마다 hello 글자를 nick.value + "님 환영합니다!" 로 바꾸세요.
+//     작성 공식:
+//       nick.addEventListener("input", function() {
+//         hello.textContent = nick.value + "님 환영합니다!";
+//       });  ↓
+    nick.addEventListener("input", function(){
+      hello.textContent = nick.value + "님 환영합니다!";
+    });
+
+
+// ✅ 클릭으로 점수↑, 10점에 레벨업, 닉네임 입력, 리셋이 모두 되면 성공!
+  </script></body></html>

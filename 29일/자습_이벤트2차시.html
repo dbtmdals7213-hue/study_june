@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><title>이벤트 실습</title>
+<style>body{font-family:sans-serif;max-width:600px;margin:40px auto;padding:0 20px;line-height:1.8;font-size:16px}button{padding:8px 16px;font-size:15px;cursor:pointer;margin:4px}input{padding:8px;font-size:15px;width:250px}#out{margin-top:16px;padding:12px;background:#eef1fb;border-radius:8px;min-height:24px}</style>
+</head>
+<body>
+<h3>주석 설명을 보며 직접 코드를 작성하세요. (아래 화면 요소를 자바스크립트로 다룹니다)</h3>
+<p id="count" style="font-size:2rem;font-weight:700">0</p>
+<button type="button" id="btn">클릭!</button>
+
+<script>
+/*
+    주제 : 클릭 카운터 (값 누적)
+
+    - 클릭할 때마다 숫자를 1씩 늘려 화면에 표시
+    - 핵심 : count 변수는 이벤트 함수 '밖'에 선언
+        (함수 안에 두면 클릭할 때마다 0으로 초기화되어 안 올라감)
+    - 클릭 → count 를 1 늘림 → textContent 로 화면 갱신
+*/
+
+// [1] id가 count 인 요소를 선택해 'countEl' 변수에 저장하세요.
+//     작성 공식: let 변수 = document.querySelector("#아이디");
+    let countEl = document.querySelector("#count");
+
+// [2] id가 btn 인 버튼을 선택해 'btn' 변수에 저장하세요.
+    let btn = document.querySelector("#btn");
+
+// [3] 'count' 변수를 만들고 0을 저장하세요. (함수 밖에 선언!)
+//     작성 공식: let 변수 = 0;
+    let count = 0;
+
+// [4] btn 에 클릭 이벤트를 연결하세요.
+//     클릭하면 ① count 를 1 늘리고 ② countEl 의 글자를 count 로 바꾸도록 만드세요.
+//     작성 공식:
+//       대상.addEventListener("click", function() {
+//         count++;
+//         countEl.textContent = count;
+//       });
+    btn.addEventListener("click", function(){
+        count++;
+        countEl.textContent = count;
+    });
+
+// 버튼을 누를 때마다 숫자가 1씩 올라가면 성공입니다!
+</script>
+</body>
+</html>

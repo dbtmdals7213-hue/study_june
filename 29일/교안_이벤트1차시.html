@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><title>실습 - 이벤트 1차시</title>
+<style>
+body{font-family:sans-serif;max-width:640px;margin:40px auto;padding:0 20px;line-height:1.7}
+.g{background:#fff7e8;border:1px solid #f0d999;border-radius:10px;padding:14px 16px;color:#6b4e16;margin-bottom:16px}
+code{background:#eee;border-radius:4px;padding:1px 6px;font-family:monospace}
+button{padding:8px 16px;border:0;border-radius:8px;background:#b45309;color:#fff;font-weight:700;cursor:pointer;font-size:1rem}
+input{padding:8px 12px;border:2px solid #d9c9a3;border-radius:8px;font-size:1rem}
+.stage{border:2px dashed #d9c9a3;border-radius:10px;padding:20px;margin:16px 0;text-align:center}
+</style>
+</head>
+  <body>
+    <h1>⌨️ 실습 - 클릭 카운터</h1>
+    <div class="g"><b>준비:</b> 브라우저로 열고, 아래 화면 요소를 자바스크립트로 다뤄보세요.</div>
+    <p id="count" style="font-size:2rem;font-weight:700">0</p>
+    <button type="button" id="btn">클릭!</button>
+    <script>
+  /*
+      주제 : 클릭 이벤트와 카운터
+
+      - 대상.addEventListener("click", function(){ ... }) 로 클릭 연결
+      - 카운터의 count 는 함수 '밖'에 선언 (안에 두면 매번 0으로 초기화)
+  */
+
+  // [1] id가 count 인 요소를 선택해 'countEl' 변수에 저장하세요.
+  //     작성 공식: let 변수 = document.querySelector("#아이디");
+      let countEl = document.querySelector("#count");
+  // [2] id가 btn 인 버튼을 선택해 'btn' 변수에 저장하세요.
+      let btn = document.querySelector("#btn");
+  // [3] 'count' 변수를 만들고 0을 저장하세요. (함수 밖에!)
+  //     작성 공식: let 변수 = 0;
+      let count = 0;
+
+  // [4] btn 에 클릭 이벤트를 연결하세요.
+  //     클릭하면 count 를 1 늘리고 countEl 의 글자를 count 로 바꾸세요.
+  //     작성 공식:
+  //       대상.addEventListener("click", function() {
+  //         count++;
+  //         countEl.textContent = count;
+  //       });
+      btn.addEventListener("click", function(){
+        count++;
+        countEl.textContent = count;
+      });
+
+  // 버튼을 누를 때마다 숫자가 1씩 올라가면 성공입니다!
+    </script>
+    </body>
+  </html>
